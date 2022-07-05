@@ -12,14 +12,7 @@ def ncaa_team_schedule():
     for game in schedule:
         print(game.date)
 
-
-# prints an ncaa team's turnover percentage
-def ncaa_team_turnover():
-    team = input("")
-    for team in Teams():
-        print(team.name, team.wins, team.losses)
-
-
+# prints which team had the most wins in a certain year
 def print_most_wins(year, wins):
     most_wins = max(wins, key=wins.get)
     print('%s: %s - %s' % (year, wins[most_wins], most_wins))
