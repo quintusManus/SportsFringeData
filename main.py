@@ -12,6 +12,7 @@ def ncaa_team_schedule():
     for game in schedule:
         print(game.date)
 
+
 # prints which team had the most wins in a certain year
 def print_most_wins(year, wins):
     most_wins = max(wins, key=wins.get)
