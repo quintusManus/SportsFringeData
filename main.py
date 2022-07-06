@@ -18,6 +18,8 @@ def print_most_wins(year, wins):
     most_wins = max(wins, key=wins.get)
     print('%s: %s - %s' % (year, wins[most_wins], most_wins))
 
+
+# our main menu
 end = 0
 while end == 0:
     print("Type the number of the sport you want")
