@@ -3,6 +3,7 @@ import sqlite3
 from sqlite3 import Error
 
 from sportsipy.nba.roster import Roster
+from sportsipy.nba.roster import Player
 from sportsipy.nhl.teams import Teams
 from sportsipy.fb.team import Team
 from sportsipy.nba.teams import Teams
@@ -58,6 +59,7 @@ def nba_roster(team):
     for player in nba_team.players:
         print(player.name)
         #prints each player on the team 
+
 
 # prints which team had the most wins in a certain year
 def print_most_wins(year, wins):
