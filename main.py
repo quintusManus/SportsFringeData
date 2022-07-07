@@ -1,18 +1,11 @@
-import random
 import sqlite3
-from sqlite3 import Error
 
 from sportsipy.nba.roster import Roster
-from sportsipy.nhl.teams import Teams
-from sportsipy.fb.team import Team
 from sportsipy.nba.teams import Teams
-from sportsipy.mlb.teams import Teams
-from sportsipy.ncaab.schedule import Schedule
 from sportsipy.nba.teams import Teams
 
 
-# puts random int from 1 - 5 into a database and then returns the random int
-# in string format.
+# gets random value from database. Returns string
 def get_random_int_from_database():
     # create sql lite database n' stuff
     # define connection and cursor
@@ -26,24 +19,11 @@ def get_random_int_from_database():
 
     cursor.execute(command1)
 
-    # add to top
-    # get a random integer between 1 and 5
-    rand = str(random.randint(1, 2))
-    cursor.execute(f"INSERT INTO top VALUES (1, {rand})")
-
-    # get results
-    cursor.execute("SELECT rank FROM top")
+    # get random row in the database (there's 1 through 5)
+    cursor.execute("SELECT * FROM top ORDER BY RANDOM() LIMIT 1")
     results = cursor.fetchall()
     number = results[0][0]
     return str(number)
-
-
-# prints an ncaa team's current schedule
-def ncaa_team_schedule():
-    team = input("Enter the NCAA team's name ")
-    schedule = Schedule(team)
-    for game in schedule:
-        print(game.date)
 
 
 # prints the schedule of selected nba team
