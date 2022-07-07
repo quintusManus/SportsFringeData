@@ -27,7 +27,7 @@ def get_random_int_from_database():
 
     # add to top
     # get a random integer between 1 and 5
-    rand = str(random.randint(1, 5))
+    rand = str(random.randint(1, 2))
     cursor.execute(f"INSERT INTO top VALUES (1, {rand})")
 
     # get results
@@ -70,8 +70,12 @@ end = 0
 while end == 0:
         print("Choose the number of your fringe question")
         print("1. What's this year's schedule for BLANK team in the NCAA?\n"
-              "2. NBA Section")
+              "2. NBA Section\n"
+              "10. I'm feeling lucky")
         text = input("")
+        if text == '10':
+            text = get_random_int_from_database()
+
         if text == '1':
             ncaa_team_schedule()
             text = input("Want to exit? press 1. If not, press 0")
@@ -80,7 +84,7 @@ while end == 0:
 
         # if they choose 2, they choose nba
         # input must be the team abbreviation! So GSW for golden state warriors, etc.
-        elif text == '2':
+        if text == '2':
             print("Input team's abbreviation")
 
             team = input("")
