@@ -69,33 +69,34 @@ def print_most_wins(year, wins):
 end = 1
 while end == 1:
         print("Choose the number of your fringe question")
-        print("1. What's this year's schedule for BLANK team in the NCAA?\n"
-              "2. NBA Section\n"
-              "10. I'm feeling lucky")
+        print("1. NBA Team Section\n"
+              "2. NBA Player Section\n")
+
+        # get user's question number
         text = input("")
-        if text == '10':
-            text = get_random_int_from_database()
 
-        if text == '1':
-            ncaa_team_schedule()
-            text = input("Want to exit? press 0. If not, press 1")
-            if text == '0':
-                end = 0
-
-        # if they choose 2, they choose nba
         # input must be the team abbreviation! So GSW for golden state warriors, etc.
-        if text == '2':
+        if text == '1':
             print("Input team's abbreviation")
 
             team = input("")
-            print(f"1. What's this year's schedule for the {team} team? \n2. Whats the current roster?")
+            print("Choose the number of your question")
+            print(f"1. What's this year's schedule for the {team} team? \n2. Whats the current roster "
+                  f"for the {team} team?\n"
+                  f"10. I'm feeling lucky")
             # prompted a question- if 1 print schedule, if 2 print roster
+
+            # If they press I'm feeling lucky, get the random int
             text = input("")
+            if text == '10':
+                text = get_random_int_from_database()
+
             if text == '1':
                 nba_schedule(team)
                 text = input("Want to exit? press 0. If not, press 1")
                 if text == '0':
                     end = 0
+
             if text == '2':
                 nba_roster(team)
                 text = input("Want to exit? press 0. If not, press 1")
