@@ -11,6 +11,7 @@ from sportsipy.mlb.teams import Teams
 from sportsipy.ncaab.schedule import Schedule
 from sportsipy.nba.teams import Teams
 
+
 # puts random int from 1 - 5 into a database and then returns the random int
 # in string format.
 def get_random_int_from_database():
@@ -18,7 +19,7 @@ def get_random_int_from_database():
     # define connection and cursor
     connection = sqlite3.connect('holding.db')
 
-    cursor =  connection.cursor()
+    cursor = connection.cursor()
 
     # create stores table
     command1 = """CREATE TABLE IF NOT EXISTS
@@ -45,20 +46,23 @@ def ncaa_team_schedule():
     for game in schedule:
         print(game.date)
 
-#prints the schedule of selected nba team
+
+# prints the schedule of selected nba team
 def nba_schedule(team):
     from sportsipy.nba.schedule import Schedule
     schedule = Schedule(team)
     for i in schedule:
         print(i.date)
 
-#print nba team roster
+
+# print nba team roster
 def nba_roster(team):
     from sportsipy.nba.roster import Player
     nba_team = Roster(team)
     for player in nba_team.players:
         print(player.name)
-        #prints each player on the team 
+        # prints each player on the team
+
 
 
 # prints which team had the most wins in a certain year
@@ -68,23 +72,29 @@ def print_most_wins(year, wins):
 
 
 # our main menu
-end = 0
-while end == 0:
-        print("Choose the number of your fringe question")
-        print("1. What's this year's schedule for BLANK team in the NCAA?\n"
-              "2. NBA Section\n"
-              "10. I'm feeling lucky")
-        text = input("")
-        if text == '10':
-            text = get_random_int_from_database()
+end = 1
+while end == 1:
+    print("Choose the number of your question")
+    print(f"1. What's this year's schedule for BLANK team? \n2. Whats the current roster "
+          f"for BLANK team?\n"
+          f"10. I'm feeling lucky")
 
-        if text == '1':
-            ncaa_team_schedule()
-            text = input("Want to exit? press 1. If not, press 0")
-            if text == '1':
-                end = 1
+    # prompted a question- if 1 print schedule, if 2 print roster
+    text = input("")
+    # If they press I'm feeling lucky, get the random int
+    if text == '10':
+        text = get_random_int_from_database()
 
-        # if they choose 2, they choose nba
+    if text == '1':
+        # input must be the team abbreviation! So GSW for golden state warriors, etc.
+        print("Input team's abbreviation")
+        team = input("")
+        nba_schedule(team)
+        text = input("Want to exit? press 0. If not, press 1")
+        if text == '0':
+            end = 0
+
+    if text == '2':
         # input must be the team abbreviation! So GSW for golden state warriors, etc.
         if text == '2':
             print("Input team's abbreviation")
@@ -103,3 +113,10 @@ while end == 0:
                 text = input("Want to exit? press 1. If not, press 0")
                 if text == '1':
                     end = 1
+        print("Input team's abbreviation")
+        team = input("")
+        nba_roster(team)
+        text = input("Want to exit? press 0. If not, press 1")
+        if text == '0':
+            end = 0
+
