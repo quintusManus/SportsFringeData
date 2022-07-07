@@ -68,7 +68,7 @@ def print_most_wins(year, wins):
 # our main menu
 end = 1
 while end == 1:
-        print("Choose the number of your fringe question")
+        print("Choose your section")
         print("1. NBA Team Section\n"
               "2. NBA Player Section\n")
 
