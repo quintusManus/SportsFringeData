@@ -66,8 +66,8 @@ def print_most_wins(year, wins):
 
 
 # our main menu
-end = 0
-while end == 0:
+end = 1
+while end == 1:
         print("Choose the number of your fringe question")
         print("1. What's this year's schedule for BLANK team in the NCAA?\n"
               "2. NBA Section\n"
@@ -78,9 +78,9 @@ while end == 0:
 
         if text == '1':
             ncaa_team_schedule()
-            text = input("Want to exit? press 1. If not, press 0")
-            if text == '1':
-                end = 1
+            text = input("Want to exit? press 0. If not, press 1")
+            if text == '0':
+                end = 0
 
         # if they choose 2, they choose nba
         # input must be the team abbreviation! So GSW for golden state warriors, etc.
@@ -93,11 +93,11 @@ while end == 0:
             text = input("")
             if text == '1':
                 nba_schedule(team)
-                text = input("Want to exit? press 1. If not, press 0")
-                if text == '1':
-                    end = 1
+                text = input("Want to exit? press 0. If not, press 1")
+                if text == '0':
+                    end = 0
             if text == '2':
                 nba_roster(team)
-                text = input("Want to exit? press 1. If not, press 0")
-                if text == '1':
-                    end = 1
+                text = input("Want to exit? press 0. If not, press 1")
+                if text == '0':
+                    end = 0
