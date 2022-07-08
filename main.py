@@ -52,33 +52,33 @@ def player_blocks():
     id = input("Enter player's id:\n")
     player = Player(id)
     print(
-        f'{player.name} has a block percentage of {player.block_percentage}.')  # Print a player's block percentage for the year.
+        f'\n{player.name} has a block percentage of {player.block_percentage}.')  # Print a player's block percentage for the year.
 
 
 def player_three_pointers():
     id = input("Enter player's id:\n")
     player = Player(id)
-    print(f'{player.name} made {player.three_pointers} three pointers '
+    print(f'\n{player.name} made {player.three_pointers} three pointers '
           f'in their NBA career.')  # Print a player's three pointers
 
 
 def player_steals():
     id = input("Enter player's id:\n")
     player = Player(id)
-    print(f'{player.name} had {player.steals} steals this season.')  # prints a player's steals for their career
+    print(f'\n{player.name} had {player.steals} steals in their NBA career.')  # prints a player's steals for their career
 
 
 def player_points():
     id = input("Enter player's id:\n")
     player = Player(id)
     print(
-        f'{player.name} scored {player.points} points in their NBA career.')  # Print a player's points in their NBA career.
+        f'\n{player.name} scored {player.points} points in their NBA career.')  # Print a player's points in their NBA career.
 
 
 def player_salary():
-    id = input("Enter player's id:")
+    id = input("Enter player's id:\n")
     player = Player(id)
-    print(f'{player.name} made ${player.salary} in their career.')  # Print a player's total income in their NBA career.
+    print(f'\n{player.name} made ${player.salary} in their career.')  # Print a player's total income in their NBA career.
 
 
 # our main menu
@@ -86,7 +86,7 @@ end = 1
 while end == 1:
     print("Choose the number of your question")
     print("1.What's this year's schedule for _____ team?")
-    print("2.How many blocks does _____ player have this season?")
+    print("2.What's the block percentage of _____ player?")
     print("3.What is the roster for ___ team this season?")
     print("4.How many 3-pointers did _____ player make in their NBA career?")
     print("5.How many steals did _____ player achieve in their NBA career?")
@@ -104,15 +104,16 @@ while end == 1:
         # input must be the team abbreviation! So GSW for golden state team, etc.
         print("Input team's abbreviation")
         team = input("")
+        print(f"\nThe schedule for the {team} team is:")
         nba_schedule(team)
-        text = input("Want to exit? press 0. If not, press 1")
+        text = input("\nWant to exit? press 0. If not, press 1")
         if text == '0':
             end = 0
         else:
             print("\n")
     if text == '2':
         player_blocks()
-        text = input("Want to exit? press 0. If not, press 1")
+        text = input("\nWant to exit? press 0. If not, press 1")
         if text == '0':
             end = 0
         else:
@@ -121,36 +122,37 @@ while end == 1:
         # input must be the team abbreviation! So GSW for golden state team, etc.
         print("Input team's abbreviation")
         team = input("")
+        print(f"\nThe roster for the {team} team is:")
         nba_roster(team)
-        text = input("Want to exit? press 0. If not, press 1")
+        text = input("\nWant to exit? press 0. If not, press 1")
         if text == '0':
             end = 0
         else:
             print("\n")
     if text == '4':
         player_three_pointers()
-        text = input("Want to exit? press 0. If not, press 1")
+        text = input("\nWant to exit? press 0. If not, press 1")
         if text == '0':
             end = 0
         else:
             print("\n")
     if text == '5':
         player_steals()
-        text = input("Want to exit? press 0. If not, press 1")
+        text = input("\nWant to exit? press 0. If not, press 1")
         if text == '0':
             end = 0
         else:
             print("\n")
     if text == '6':
         player_points()
-        text = input("Want to exit? press 0. If not, press 1")
+        text = input("\nWant to exit? press 0. If not, press 1")
         if text == '0':
             end = 0
         else:
             print("\n")
     if text == '7':
         player_salary()
-        text = input("Want to exit? press 0. If not, press 1")
+        text = input("\nWant to exit? press 0. If not, press 1")
         if text == '0':
             end = 0
         else:
