@@ -2,7 +2,6 @@ import sqlite3
 
 from sportsipy.nba.roster import Roster
 from sportsipy.nba.roster import Player
-from sportsipy.nba.teams import Team
 
 
 # gets random value from database. Returns string
@@ -48,13 +47,6 @@ def print_most_wins(year, wins):
     most_wins = max(wins, key=wins.get)
     print('%s: %s - %s' % (year, wins[most_wins], most_wins))
 
-
-# def player_id(self):
-#         """
-#         Returns a ``string`` of the player's ID on sports-reference, such as
-#         'hardeja01' for James Harden.
-#         """
-#         return self._player_id
 
 def player_blocks():
     id = input("Enter player's id:\n")
