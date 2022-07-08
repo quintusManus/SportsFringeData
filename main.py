@@ -1,8 +1,8 @@
 import sqlite3
 
 from sportsipy.nba.roster import Roster
-from sportsipy.nba.teams import Teams
-from sportsipy.nba.teams import Teams
+from sportsipy.nba.roster import Player
+from sportsipy.nba.teams import Team
 
 
 # gets random value from database. Returns string
@@ -49,34 +49,117 @@ def print_most_wins(year, wins):
     print('%s: %s - %s' % (year, wins[most_wins], most_wins))
 
 
+# def player_id(self):
+#         """
+#         Returns a ``string`` of the player's ID on sports-reference, such as
+#         'hardeja01' for James Harden.
+#         """
+#         return self._player_id
+
+def player_blocks():
+    id = input("Enter player's id:\n")
+    player = Player(id)
+    print(
+        f'{player.name} has a block percentage of {player.block_percentage}.')  # Print a player's block percentage for the year.
+
+
+def player_three_pointers():
+    id = input("Enter player's id:\n")
+    player = Player(id)
+    print(f'{player.name} made {player.three_pointers} three pointers '
+          f'in their NBA career.')  # Print a player's three pointers
+
+
+def player_steals():
+    id = input("Enter player's id:\n")
+    player = Player(id)
+    print(f'{player.name} had {player.steals} steals this season.')  # prints a player's steals for their career
+
+
+def player_points():
+    id = input("Enter player's id:\n")
+    player = Player(id)
+    print(
+        f'{player.name} scored {player.points} points in their NBA career.')  # Print a player's points in their NBA career.
+
+
+def player_salary():
+    id = input("Enter player's id:")
+    player = Player(id)
+    print(f'{player.name} made ${player.salary} in their career.')  # Print a player's total income in their NBA career.
+
+
 # our main menu
 end = 1
 while end == 1:
     print("Choose the number of your question")
-    print(f"1. What's this year's schedule for BLANK team? \n2. Whats the current roster "
-          f"for BLANK team?\n"
-          f"10. I'm feeling lucky")
+    print("1.What's this year's schedule for _____ team?")
+    print("2.How many blocks does _____ player have this season?")
+    print("3.What is the roster for ___ team this season?")
+    print("4.How many 3-pointers did _____ player make in their NBA career?")
+    print("5.How many steals did _____ player achieve in their NBA career?")
+    print("6.How many points did _____ player make in their NBA career?")
+    print("7.How much did _____ player make in their NBA career?")
+    print("10. I'm feeling lucky.")
 
-    # prompted a question- if 1 print schedule, if 2 print roster
+    # prompted a question
     text = input("")
     # If they press I'm feeling lucky, get the random int
     if text == '10':
         text = get_random_int_from_database()
 
     if text == '1':
-        # input must be the team abbreviation! So GSW for golden state warriors, etc.
+        # input must be the team abbreviation! So GSW for golden state team, etc.
         print("Input team's abbreviation")
         team = input("")
         nba_schedule(team)
         text = input("Want to exit? press 0. If not, press 1")
         if text == '0':
             end = 0
-
+        else:
+            print("\n")
     if text == '2':
-        # input must be the team abbreviation! So GSW for golden state warriors, etc.
+        player_blocks()
+        text = input("Want to exit? press 0. If not, press 1")
+        if text == '0':
+            end = 0
+        else:
+            print("\n")
+    if text == '3':
+        # input must be the team abbreviation! So GSW for golden state team, etc.
         print("Input team's abbreviation")
         team = input("")
         nba_roster(team)
         text = input("Want to exit? press 0. If not, press 1")
         if text == '0':
             end = 0
+        else:
+            print("\n")
+    if text == '4':
+        player_three_pointers()
+        text = input("Want to exit? press 0. If not, press 1")
+        if text == '0':
+            end = 0
+        else:
+            print("\n")
+    if text == '5':
+        player_steals()
+        text = input("Want to exit? press 0. If not, press 1")
+        if text == '0':
+            end = 0
+        else:
+            print("\n")
+    if text == '6':
+        player_points()
+        text = input("Want to exit? press 0. If not, press 1")
+        if text == '0':
+            end = 0
+        else:
+            print("\n")
+    if text == '7':
+        player_salary()
+        text = input("Want to exit? press 0. If not, press 1")
+        if text == '0':
+            end = 0
+        else:
+            print("\n")
