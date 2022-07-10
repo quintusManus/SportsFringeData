@@ -15,7 +15,8 @@ jobs:
       - name: Install tools
         run: |
           python -m pip install --upgrade pip pytest
-          pip install coverage                           #this is new
+          pip install coverage
+          pip install sportsipy                                      #this is new
 
       - name: Test with unittest
         run: python3 -m unittest testme.py
