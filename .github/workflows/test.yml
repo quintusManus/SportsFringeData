@@ -18,7 +18,7 @@ jobs:
           pip install coverage                           #this is new
 
       - name: Test with unittest
-        run: python3 -m unittest main.py
+        run: python3 -m unittest testme.py
           
       - name: Check code coverage                        #new from here down
         run: |
