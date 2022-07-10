@@ -78,7 +78,7 @@ def player_points():
 def player_salary():
     id = input("Enter player's id:\n")
     player = Player(id)
-    print(f'\n{player.name} made ${player.salary} in their career.')  # Print a player's total income in their NBA career.
+    return f'\n{player.name} made ${player.salary} in their career.'  # Print a player's total income in their NBA career.
 
 
 # our main menu
@@ -151,7 +151,8 @@ while end == 1:
         else:
             print("\n")
     if text == '7':
-        player_salary()
+        result = player_salary()
+        print(result)
         text = input("\nWant to exit? press 0. If not, press 1")
         if text == '0':
             end = 0
