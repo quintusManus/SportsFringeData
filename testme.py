@@ -8,7 +8,7 @@ class Testme(unittest.TestCase):
 
     @patch('builtins.input', return_value=player_id)
     def test_player_salary(self, mock_input):
-        result = player_salary
+        result = player_salary()
         self.assertEqual(result, 'Stephen Curry made $212078086 in their career.')
 
         
