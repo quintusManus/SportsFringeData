@@ -1,5 +1,5 @@
 import unittest
-import main
+from main import player_salary
 
 
 class Testme(unittest.TestCase):
