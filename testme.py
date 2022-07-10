@@ -1,14 +1,16 @@
 import unittest
-from SportsFringeData import function1, function2
+import main
 
 
 class Testme(unittest.TestCase):
-    def test_function1(self):
-        self.assertEqual(function1(1), 0)
+    def test_player_salary(self):
+        player_id = 'curryst01'
 
-    def test_function2(self):
-        self.assertEqual(function2(2,1), 3)
-        self.assertEqual(function2(2.1, 1.2), 3.3)
+    @patch('builtins.input', return_value=player_id)
+    def test_player_salary(self, mock_input):
+        result = player_salary
+        self.assertEqual(result, 'Stephen Curry made $212078086 in their career.')
 
+        
 if __name__ == '__main__':
     unittest.main()
